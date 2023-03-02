@@ -1,0 +1,44 @@
+[
+	{
+		"id":  "001_a",
+		"item_type": "checkable",
+		"title": "level 001 item a",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_children.json",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_c",
+		"item_type": "exclusive",
+		"title": "level 001 item c",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_c_children.json",
+		"sort_order": 3		
+	},
+	{
+		"id":  "001_b",
+		"item_type": "checkable",
+		"title": "level 001 item b",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_b_children.json",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_end",
+		"item_type": "checkpoint",
+		"terminalstate":true,
+		"title": "end of questionnaire",
+		"detail": "this is the end checkpoint where the user can submit the questionnaire",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 4		
+	}
+
+]

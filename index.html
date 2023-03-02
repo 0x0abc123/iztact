@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Security Requirements Questionnaire</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<!--link rel="stylesheet" href="/css/minimum" type="text/css" media="all" /-->
+	<!--link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /-->
+	<meta name="viewport" content="width=device-width" />
+	<meta name="description" content="Security Requirements Questionnaire" />
+
+	<template id="t_itemdisplay">
+	  <div>
+		<span v-if="item.item_type == 'exclusive'">
+			<input type="radio" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
+		</span>
+		<span v-if="item.item_type == 'checkable'">
+			<input type="checkbox" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
+		</span>
+		<span>
+			<b>{{ item.title }}</b>
+		</span>
+	  </div>
+		<div v-html="item.detail"></div>
+		<div><a href="#" @click="onHelpShow(item)">?</a></div>
+		<div v-if="item.help_show && item.help && item.help != ''" v-html="item.help"></div>
+		<div v-if="item.help_show"><a href="#" @click="onHelpClose(item)">X</a></div>
+		<div v-if="item.selected && item.user_input_show"><textarea v-model="item.user_input" placeholder="Add comments here"></textarea></div>
+		<ul v-if="item.selected || item.item_type == 'checkpoint'">
+			<li v-for="child in item.childItems">
+			  <itemdisplay :item="child"></itemdisplay>
+			</li>
+		</ul>
+	</template>
+
+</head>
+<body>
+	<div id="body_container">
+		<div id="app">
+			<div>
+				<itemdisplay :item="displayedItem.v">
+				</itemdisplay>
+			</div>
+			<div  v-if="isTerminalState()">
+				<button @click="handleFinished()">Finish</button>
+			</div>
+			<div>
+				<button @click="navigatePrevCheckpoint()" :disabled="!canNavigatePrevCheckpoint()">Prev</button>
+				<button @click="navigateFwdCheckpoint()" :disabled="!canNavigateFwdCheckpoint()">Next</button>
+			</div>
+		</div>	
+	</div>
+</body>
+<script src="index.js" type="module"></script>
+</html>

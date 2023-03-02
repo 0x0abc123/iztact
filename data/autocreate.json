@@ -1,0 +1,32 @@
+{
+	"autochoice1":{
+		"id":  "au1",
+		"item_type": "exclusive",
+		"title": "Auto Option 1 Test",
+		"detail": "auto created option, detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	"autochoice2":{
+		"id":  "au2",
+		"item_type": "exclusive",
+		"title": "Auto Option 2 Test",
+		"detail": "auto created option, detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "",
+		"sort_order": 2	
+	},
+	"autochoice3":{
+		"id":  "au3",
+		"item_type": "exclusive",
+		"title": "Auto Option 3 Test",
+		"detail": "auto created option, detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "",
+		"sort_order": 3		
+	}
+}

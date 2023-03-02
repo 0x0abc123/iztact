@@ -1,0 +1,33 @@
+[
+	{
+		"id":  "001_a_a",
+		"item_type": "exclusive",
+		"title": "level 001a item a",
+		"detail": "# Marked in the browser\n\nRendered by **marked**.",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_a_children.json",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_b",
+		"item_type": "exclusive",
+		"title": "level 001a item b",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_b_children.json",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c",
+		"item_type": "checkpoint",
+		"title": "level 001a checkpoint c",
+		"detail": "detailed information placeholder for the test checkpoint goes here",
+		"help" : "checkpoint C additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_children.json",
+		"sort_order": 3		
+	}
+
+]

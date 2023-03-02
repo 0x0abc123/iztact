@@ -1,0 +1,34 @@
+[
+	{
+		"id":  "001_a_c_a",
+		"item_type": "exclusive",
+		"title": "level 001ac item a",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"autoCreateEndChoices": ["autochoice1","autochoice2","autochoice3"],
+		"childSelectionRequired": true,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_b",
+		"item_type": "exclusive",
+		"title": "level 001ac item b",
+		"detail": "detailed information placeholder",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_b_children.json",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c_c",
+		"item_type": "checkpoint",
+		"title": "level 001ac checkpoint cd",
+		"detail": "detailed information placeholder for the test checkpoint goes here",
+		"help" : "checkpoint CD additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_c_children.json",
+		"sort_order": 3		
+	}
+
+]
