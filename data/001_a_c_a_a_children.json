@@ -1,0 +1,43 @@
+[
+	{
+		"id":  "001_a_c_a_a_a",
+		"item_type": "checkable",
+		"title": "Height recorded",
+		"detail": "The nurse that triaged the patient took and recorded the patient's height",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_a_a_b",
+		"item_type": "checkable",
+		"title": "Weight recorded",
+		"detail": "The nurse that triaged the patient took and recorded the patient's weight",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c_a_a_c",
+		"item_type": "checkable",
+		"title": "Blood Pressure recorded",
+		"detail": "The nurse that triaged the patient took and recorded the patient's blood pressure",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 3		
+	},
+	{
+		"id":  "001_a_c_a_a_d",
+		"item_type": "checkable",
+		"title": "Heart Rate recorded",
+		"detail": "The nurse that triaged the patient took and recorded the patient's heart rate",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 4		
+	}
+
+]

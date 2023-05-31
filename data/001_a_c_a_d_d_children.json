@@ -1,0 +1,24 @@
+ [
+	{
+		"id":  "001_a_c_a_d_d_a",
+		"item_type": "checkable",
+		"title": "Follow up appointment made",
+		"detail": "The patient has been booked in for a follow-up appointment",
+		"help" : "additional help or links related to the item",
+		"user_input":  "respondent can supply additional information in free-text in this field",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_a_d_d_b",
+		"item_type": "checkable",
+		"title": "Medication Prescribed",
+		"detail": "The patient has been prescribed medication to assist with their treatment",
+		"help" : "additional help or links related to the item",
+		"user_input":  "respondent can supply additional information in free-text in this field",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 2		
+	}
+]

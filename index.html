@@ -1,52 +1,84 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<title>Security Requirements Questionnaire</title>
+	<title>Iztact Questionnaire Frontend Framework</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<!--link rel="stylesheet" href="/css/minimum" type="text/css" media="all" /-->
 	<!--link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" /-->
 	<meta name="viewport" content="width=device-width" />
-	<meta name="description" content="Security Requirements Questionnaire" />
+	<meta name="description" content="Iztact Questionnaire Frontend Framework" />
+	<link rel="stylesheet" href="bulma.min.css">
 
 	<template id="t_itemdisplay">
-	  <div>
-		<span v-if="item.item_type == 'exclusive'">
-			<input type="radio" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
-		</span>
-		<span v-if="item.item_type == 'checkable'">
-			<input type="checkbox" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
-		</span>
-		<span>
-			<b>{{ item.title }}</b>
-		</span>
-	  </div>
-		<div v-html="item.detail"></div>
-		<div><a href="#" @click="onHelpShow(item)">?</a></div>
-		<div v-if="item.help_show && item.help && item.help != ''" v-html="item.help"></div>
-		<div v-if="item.help_show"><a href="#" @click="onHelpClose(item)">X</a></div>
-		<div v-if="item.selected && item.user_input_show"><textarea v-model="item.user_input" placeholder="Add comments here"></textarea></div>
-		<ul v-if="item.selected || item.item_type == 'checkpoint'">
-			<li v-for="child in item.childItems">
-			  <itemdisplay :item="child"></itemdisplay>
-			</li>
-		</ul>
+		<div class="media">
+		  <div class="media-left">
+			<span v-if="item.item_type == 'exclusive'">
+				<input type="radio" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
+			</span>
+			<span v-if="item.item_type == 'checkable'">
+				<input type="checkbox" :checked="item.selected" @click="onItemSelected(item)" :disabled="item.disabled"/>
+			</span>
+		  </div>
+
+		<div class="media-content">
+			<span class="subtitle is-4 mr-2">{{ item.title }}</span>
+			<span class="icon is-small" @click="onHelpToggle(item)">
+				<svg class="inln" width='1em' height='1em' viewBox='0 0 24 24'><use href="#ico-info"></use></svg>
+			</span>
+			<div v-if="item.help_show && item.help && item.help != ''"  class="message">
+				<div class="message-body" v-html="item.help"></div>
+			</div>
+			<div class="content" v-html="item.detail"></div>
+			<div v-if="item.selected && item.user_input_show"><textarea v-model="item.user_input" rows="5" cols="60" placeholder="Add comments here"></textarea></div>
+				<ul v-if="(item.selected || item.item_type == 'checkpoint') && item.childItems.length > 0" style="list-style: none;">
+					<li v-for="child in item.childItems">
+					  <itemdisplay :item="child"></itemdisplay>
+					</li>
+				</ul>
+		</div>
 	</template>
 
 </head>
 <body>
+	<!-- SVG ICONS START -->
+	<svg style="display: none;">
+		<defs><g id="ico-info" viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><line x1='12' y1='16' x2='12' y2='12'></line><line x1='12' y1='8' x2='12.01' y2='8'></line></g></defs>
+	</svg>
+	<svg style="display: none;">
+		<defs><g id="ico-upload" viewBox='0 0 24 24' fill='currentColor' stroke='currentColor' stroke-width='1' stroke-linecap='square' stroke-linejoin='square'><path d="M17 12v5H3v-5H1v5a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-5z"/>
+		<path d="M15 7l-5-6-5 6h4v8h2V7h4z"/></g></defs>		
+	</svg>
+	<!-- SVG ICONS END -->
+
+	<nav class="navbar" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="#">
+				<img src="logo.png" height="28">
+			</a>
+		</div>
+	</nav>
+	
 	<div id="body_container">
-		<div id="app">
-			<div>
+		<div id="app" class="mx-6">
+
+			<div></div>
+			<div class="block mt-5"><span class="title is-3">Questionnaire Title Placeholder</span></div>
+			<div class="block">
+
+			<div class="box">
 				<itemdisplay :item="displayedItem.v">
 				</itemdisplay>
 			</div>
-			<div  v-if="isTerminalState()">
-				<button @click="handleFinished()">Finish</button>
+
+			<div class="block buttons">
+				<button @click="navigatePrevCheckpoint()" :disabled="!canNavigatePrevCheckpoint()" class="button is-primary">&lt; Prev</button>
+				<button @click="navigateFwdCheckpoint()" :disabled="!canNavigateFwdCheckpoint()" class="button is-primary">Next &gt;</button>
+				<button v-if="isTerminalState()" @click="handleFinished()" class="button is-success">
+					<span class="icon is-small mr-1">
+						<svg class="inln" width='1em' height='1em' viewBox='0 0 24 24'><use href="#ico-upload"></use></svg>
+					</span>
+				Submit</button>
 			</div>
-			<div>
-				<button @click="navigatePrevCheckpoint()" :disabled="!canNavigatePrevCheckpoint()">Prev</button>
-				<button @click="navigateFwdCheckpoint()" :disabled="!canNavigateFwdCheckpoint()">Next</button>
-			</div>
+
 		</div>	
 	</div>
 </body>

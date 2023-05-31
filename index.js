@@ -1,9 +1,11 @@
-import { createApp, ref, reactive } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-//import { createApp, ref, reactive } from './vue.esm-browser.prod.js'
+import { createApp, ref, reactive } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.prod.js'
 import { itemzero, ITEM0_ID } from './itemzero.js'
 import { marked } from './marked.esm.js'
 
 const item0 = itemzero
+itemzero.detail = marked.parse(itemzero.detail)
+if(itemzero.help) 
+	itemzero.help = marked.parse(itemzero.help)
 
 function sortItems(itemA, itemB) {
 	return itemA.sort_order - itemB.sort_order
@@ -37,7 +39,8 @@ function resetCheckpointNavList() {
 		GS.checkpointNavList.pop()
 }
 
-function debug(msg) {console.log(msg)}
+const DEBUG_MODE = false
+function debug(msg) { if (DEBUG_MODE) console.log(msg)}
 
 var app = createApp({
 
@@ -84,25 +87,29 @@ var app = createApp({
 			alert(msg)
 		}
 
-		function removeUnselectedItems(item) {
+		function pruneTree(item) {
+			item.detail = ""
+			item.help = ""
 			for(let i = 0; i < item.childItems.length; i++) {
 				let ci = item.childItems[i]
 				if(!ci.selected)
 					item.childItems[i] = {}
 				else
-					removeUnselectedItems(ci)
+					pruneTree(ci)
 			}
 			for(let i = 0; i < item.childCheckpoints.length; i++) {
 				let ci = item.childCheckpoints[i]
-				removeUnselectedItems(ci)
+				pruneTree(ci)
 			}
 		}
 		
 		function handleFinished() {
-			let clonedItem0 = JSON.parse(JSON.stringify(item0))
-			removeUnselectedItems(clonedItem0)
+			let clonedItem0 = JSON.parse(JSON.stringify(item0)) //deep copy
+			pruneTree(clonedItem0)
+			let prunedJSONString = JSON.stringify(clonedItem0)
 			console.log('finished...')
-			console.log(JSON.stringify(clonedItem0))
+			console.log(prunedJSONString)
+			/*ADD YOUR CODE HERE TO SEND THE JSON OUTPUT SOMEWHERE*/
 		}	
 
 		function isTerminalState() {return (displayedItem.v.terminalstate)}
@@ -135,7 +142,7 @@ var app = createApp({
 			navigatePrevCheckpoint,
 			recursivelyFindUnansweredItem,
 			showCheckpointNavError,
-			removeUnselectedItems,
+			pruneTree,
 			handleFinished,
 			isTerminalState
 		}
@@ -191,6 +198,9 @@ app.component('itemdisplay',{
 			this.setVisibilityOfItemAndSiblings(item)
 		},
 
+		onHelpToggle(item) {
+			item.help_show = !item.help_show
+		},
 		onHelpShow(item) {
 			item.help_show = true
 		},
@@ -239,8 +249,8 @@ app.component('itemdisplay',{
 					"sort_order": tmpE.sort_order,
 					"childItems": [],
 					"childCheckpoints": [],
-					"user_input": "optional",
-					"user_input_show": true,
+					"user_input": (tmpE.user_input && tmpE.user_input != "") ? tmpE.user_input : "",
+					"user_input_show": (tmpE.user_input && tmpE.user_input != ""),
 					"help_show": false,
 					"parentID": item.id, 
 					"selected": false, 

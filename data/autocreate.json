@@ -2,31 +2,34 @@
 	"autochoice1":{
 		"id":  "au1",
 		"item_type": "exclusive",
-		"title": "Auto Option 1 Test",
-		"detail": "auto created option, detailed information placeholder",
+		"title": "Towel Thief",
+		"detail": "Staff were too busy trying to apprehend a thief who was stealing towels from the store room",
 		"help" : "additional help or links related to the item",
 		"childSelectionRequired": true,
 		"children_json":  "",
+		"user_input":  "respondent can supply additional information in free-text in this field",
 		"sort_order": 1		
 	},
 	"autochoice2":{
 		"id":  "au2",
 		"item_type": "exclusive",
-		"title": "Auto Option 2 Test",
-		"detail": "auto created option, detailed information placeholder",
+		"title": "Gym",
+		"detail": "A routine gym workout took precedence over the task in question, to facilitate desperately needed weight-loss",
 		"help" : "additional help or links related to the item",
 		"childSelectionRequired": true,
 		"children_json":  "",
+		"user_input":  "respondent can supply additional information in free-text in this field",
 		"sort_order": 2	
 	},
 	"autochoice3":{
 		"id":  "au3",
 		"item_type": "exclusive",
-		"title": "Auto Option 3 Test",
-		"detail": "auto created option, detailed information placeholder",
+		"title": "Move House",
+		"detail": "The required staff member had to urgently take absence from their shift in order to move their house to the other side of the street as it had been built on the wrong plot of land",
 		"help" : "additional help or links related to the item",
 		"childSelectionRequired": true,
 		"children_json":  "",
+		"user_input":  "respondent can supply additional information in free-text in this field",
 		"sort_order": 3		
 	}
 }

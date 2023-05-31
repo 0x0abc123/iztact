@@ -1,0 +1,34 @@
+[
+	{
+		"id":  "001_a_a",
+		"item_type": "exclusive",
+		"title": "Patient already registered",
+		"detail": "The patient already existed in the hospital system and no new record was created.\n\nThe detail field supports markdown rendering (Rendered by **marked.js**).",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_b",
+		"item_type": "exclusive",
+		"title": "New registration created",
+		"detail": "The patient had not previously attended the hospital and no record existed for them. A new record was created.",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c",
+		"item_type": "exclusive",
+		"title": "Could not register patient",
+		"detail": "It was not possible to register the patient due to the circumstances at the time of their attendance",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"autoCreateEndChoices": ["autochoice1","autochoice2","autochoice3"],
+		"children_json":  "",
+		"sort_order": 3		
+	}
+
+]

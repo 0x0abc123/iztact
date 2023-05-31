@@ -1,0 +1,44 @@
+[
+	{
+		"id":  "001_a_c_b_a",
+		"item_type": "exclusive",
+		"title": "Patient left the hospital",
+		"detail": "The patient became impatient and decided to leave in order to seek medical attention elsewhere",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_b_b",
+		"item_type": "exclusive",
+		"title": "Patient died",
+		"detail": "The patient died as a result of not recieving medical attention",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c_b_c",
+		"item_type": "exclusive",
+		"title": "Patient is still waiting",
+		"detail": "The patient is still present at the hospital and waiting for a nurse as we speak",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 3		
+	},
+	{
+		"id":  "001_a_c_b_end",
+		"item_type": "checkpoint",
+		"title": "Reasons why a nurse did not see patient",
+		"detail": "Please record the reason a nurse was not able to see the patient",
+		"help" : "additional help or links related to the item",
+		"autoCreateEndChoices": ["autochoice1","autochoice2","autochoice3"],
+		"childSelectionRequired": true,
+		"children_json":  "",
+		"sort_order": 4		
+	}
+
+]

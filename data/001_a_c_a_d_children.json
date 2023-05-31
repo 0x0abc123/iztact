@@ -1,0 +1,42 @@
+[
+	{
+		"id":  "001_a_c_a_d_a",
+		"item_type": "exclusive",
+		"title": "Did not have to wait for doctor",
+		"detail": "The patient did not have to wait, and was seen immediately by a nurse upon presenting at the hospital",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_a_d_b",
+		"item_type": "exclusive",
+		"title": "Had to wait for doctor (less than 30 mins wait)",
+		"detail": "The patient had to wait for a doctor, but was seen within 30 minutes of being triaged",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c_a_d_c",
+		"item_type": "exclusive",
+		"title": "Had to wait for doctor (more than 30 mins wait)",
+		"detail": "The patient had to wait for at least 30 minutes after being triaged before they were seen by a doctor",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": false,
+		"children_json":  "",
+		"sort_order": 3		
+	},
+	{
+		"id":  "001_a_c_a_d_d",
+		"item_type": "checkpoint",
+		"title": "Outcome of treatment by doctor",
+		"detail": "Please record information in relation to the doctor's treatment of the patient",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_a_d_d_children.json",
+		"sort_order": 4		
+	}
+]

@@ -1,0 +1,44 @@
+[
+	{
+		"id":  "001_a_c_a_a",
+		"item_type": "exclusive",
+		"title": "Health Condition notes were recorded",
+		"detail": "The nurse that triaged the patient recorded notes about the patient's health condition at the time",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_a_a_children.json",
+		"sort_order": 1		
+	},
+	{
+		"id":  "001_a_c_a_b",
+		"item_type": "exclusive",
+		"title": "No health condition notes recorded",
+		"detail": "The nurse that triaged the patient did not record any notes about the patient's health condition at the time",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"autoCreateEndChoices": ["autochoice1","autochoice2","autochoice3"],
+		"children_json":  "",
+		"sort_order": 2		
+	},
+	{
+		"id":  "001_a_c_a_c",
+		"item_type": "checkpoint",
+		"title": "Did the patient have to wait some time to see a nurse?",
+		"detail": "Some patients presenting at the hospital need to wait for a period of time to see a nurse. Did the patient in question, need to wait before they were seen?",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_a_c_children.json",
+		"sort_order": 3		
+	},
+	{
+		"id":  "001_a_c_a_d",
+		"item_type": "checkpoint",
+		"title": "Information relating to doctor treating the patient",
+		"detail": "Please record information in relation to the patient being seen by a doctor at the hospital",
+		"help" : "additional help or links related to the item",
+		"childSelectionRequired": true,
+		"children_json":  "001_a_c_a_d_children.json",
+		"sort_order": 4		
+	}
+
+]
